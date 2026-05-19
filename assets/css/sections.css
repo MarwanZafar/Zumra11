@@ -558,7 +558,9 @@
   }
 }
 
-@media (max-height: 600px) {
+/* Hide scroll indicator on short screens OR narrow mobile widths
+   (prevents the vertical line from bleeding into the next section) */
+@media (max-height: 600px), (max-width: 768px) {
   .hero__scroll-indicator {
     display: none;
   }
@@ -1898,35 +1900,46 @@
 
 /* ═══ Mobile ═══ */
 @media (max-width: 600px) {
-  .programs { padding: 80px 5% 90px; }
-  .programs__intro { margin-bottom: 56px; }
+  .programs { padding: 70px 5% 80px; }
+  .programs__intro { margin-bottom: 44px; }
+  .programs__title { font-size: clamp(26px, 7vw, 36px); }
+  .programs__subtitle { font-size: 14.5px; line-height: 1.7; }
   .programs__bento {
     grid-template-columns: 1fr;
     grid-template-areas: none;
     grid-auto-rows: auto;
-    gap: 16px;
+    gap: 14px;
   }
-  .prog-card[data-step] { grid-area: auto / auto; min-height: 340px; }
-  .prog-card[data-step="1"] { min-height: 380px; }
+  /* All cards same min-height on mobile — no special tall hero */
+  .prog-card[data-step] { grid-area: auto / auto; min-height: 290px; }
+  .prog-card[data-step="1"] { min-height: 330px; }
   .prog-card {
-    border-radius: 18px;
+    border-radius: 16px;
   }
   .prog-card__content {
-    padding: 24px;
+    padding: 22px;
   }
   .prog-card__name {
-    font-size: 24px;
+    font-size: 23px;
   }
   .prog-card__desc {
-    font-size: 14.5px;
+    font-size: 14px;
+    max-width: 100%;
   }
-  .prog-card--hero .prog-card__name { font-size: 26px; }
-  .prog-card--hero .prog-card__desc { font-size: 15px; }
+  .prog-card--hero .prog-card__name { font-size: 25px; }
+  .prog-card--hero .prog-card__desc { font-size: 14.5px; }
+  /* Card 02 wide also gets bottom-anchored text on mobile */
+  .prog-card--wide .prog-card__content {
+    top: auto;
+    bottom: 0;
+    transform: none;
+    padding: 22px;
+  }
   .prog-card__corner-icon {
-    width: 38px;
-    height: 38px;
-    top: 18px;
-    inset-inline-start: 18px;
+    width: 36px;
+    height: 36px;
+    top: 16px;
+    inset-inline-start: 16px;
   }
   .prog-card--hero .prog-card__corner-icon {
     top: auto;
@@ -2080,7 +2093,7 @@
 }
 .closing__ornament-bar {
   display: inline-block;
-  width: 56px;
+  width: clamp(36px, 7vw, 56px);
   height: 1px;
   background: linear-gradient(90deg, transparent, var(--terracotta-dark), transparent);
 }
@@ -2224,7 +2237,7 @@
     padding: 64px 24px 56px;
   }
 }
-@media (max-width: 560px) {
+@media (max-width: 600px) {
   .closing__title {
     white-space: normal;
     font-size: clamp(24px, 7.5vw, 40px);
@@ -2913,8 +2926,21 @@
   .register__progress-steps {
     gap: 6px;
   }
+  /* Smaller inset so progress bar isn't squeezed to nothing on narrow phones */
+  .register__progress-bar {
+    inset-inline-start: calc(100% / 6 + 16px);
+    inset-inline-end: calc(100% / 6 + 16px);
+  }
   .register__step-label {
-    font-size: 10.5px;
+    font-size: 11px;
+    letter-spacing: 0.02em;
+  }
+  .register__step-circle {
+    width: 32px;
+    height: 32px;
+  }
+  .register__progress-bar {
+    top: 16px;
   }
 }
 
@@ -3372,16 +3398,106 @@
   .rm-circle[data-step="1"], .rm-label[data-step="1"] { display: contents; }
 }
 
-/* ═══ Mobile (≤ 600px) ═══ */
+/* ═══ Mobile (≤ 600px) — Vertical timeline: small circle + side-by-side label ═══ */
 @media (max-width: 600px) {
-  .rm-section { padding: 90px 5% 100px; }
-  .rm-section__header { margin-bottom: 56px; }
-  .rm-journey {
-    grid-template-columns: 1fr;
-    max-width: 380px;
-    gap: 32px;
+  .rm-section { padding: 80px 5% 90px; }
+  .rm-section__header { margin-bottom: 48px; }
+  .rm-section__title {
+    font-size: clamp(26px, 7vw, 38px);
+    line-height: 1.25;
   }
-  .rm-circle { width: 100px; height: 100px; }
+
+  /* Two-column layout: circle (right in RTL) + label text (left, flowing to right) */
+  .rm-journey {
+    position: relative;
+    grid-template-columns: 84px 1fr;
+    grid-template-rows: auto;
+    grid-auto-flow: row;
+    max-width: 100%;
+    column-gap: 18px;
+    row-gap: 24px;
+    align-items: center;
+  }
+  .rm-journey__ribbon { display: none !important; }
+
+  /* Reset all explicit grid placements — !important required to defeat
+     the more-specific desktop rules like .rm-label--low + data-step="1" */
+  /* Defeat the tablet rule (.rm-circle[data-step="1"], .rm-label[data-step="1"]
+     { display: contents }) which promotes station 1's children as grid items */
+  .rm-circle[data-step="1"] { display: block !important; }
+  .rm-label[data-step="1"] { display: flex !important; flex-direction: column !important; }
+
+  .rm-circle,
+  .rm-circle--low,
+  .rm-circle--high,
+  .rm-circle[data-step] {
+    grid-row: auto !important;
+    grid-column: 1 !important;
+    align-self: center !important;
+    justify-self: center !important;
+    width: 74px !important;
+    height: 74px !important;
+    margin: 0 !important;
+  }
+  .rm-circle__halo { inset: -10px; filter: blur(12px); }
+  .rm-circle__inner::after { inset: 8px; }
+  .rm-circle__inner svg { width: 46%; height: 46%; }
+
+  .rm-label,
+  .rm-label--low,
+  .rm-label--high {
+    grid-row: auto !important;
+    grid-column: 2 !important;
+    order: 0 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    text-align: right !important;
+    padding: 0 !important;
+    justify-self: stretch !important;
+  }
+  .rm-label__connector { display: none !important; }
+  .rm-label__num {
+    margin: 0 0 6px !important;
+    padding: 2px 8px;
+    font-size: 10.5px;
+    letter-spacing: 0.18em;
+    order: 0 !important;
+    align-self: flex-start !important;
+  }
+  .rm-label__title {
+    width: 100%;
+    font-size: 19px;
+    margin: 0 0 5px;
+    line-height: 1.3;
+  }
+  .rm-label__desc {
+    width: 100%;
+    font-size: 13.5px;
+    line-height: 1.65;
+    color: rgba(232, 220, 198, 0.72);
+    word-break: normal;
+    overflow-wrap: break-word;
+  }
+
+  /* Subtle vertical accent line connecting circles (RTL: right edge) */
+  .rm-journey::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    bottom: 40px;
+    inset-inline-start: 42px;
+    width: 1px;
+    background: linear-gradient(180deg,
+      transparent,
+      rgba(184, 148, 95, 0.22) 12%,
+      rgba(184, 148, 95, 0.22) 88%,
+      transparent);
+    z-index: 0;
+    pointer-events: none;
+  }
 }
 
 /* ═══ Reduced motion ═══ */
@@ -3491,3 +3607,195 @@
 }
 
 /* Spaces uses its own rounded cream panel edge instead of section fade overlays. */
+
+/* ═══════════════════════════════════════════════
+   MOBILE POLISH — comprehensive fit & finish for ≤600px phones
+   ═══════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  /* Hero — tighter padding + smaller flourish to free space for content */
+  .hero__content {
+    padding-top: 12vh;
+    padding-bottom: 12vh;
+  }
+  .hero__sub-ar { font-size: 15px; }
+  .hero__body { font-size: 14.5px; line-height: 1.75; }
+  .hero__quote-text { font-size: 13px; }
+
+  /* Spotlight tagline — single line on mobile, font scales to fit */
+  .spotlight__tagline {
+    font-size: clamp(16px, 4.8vw, 26px) !important;
+    white-space: nowrap !important;
+    line-height: 1.3;
+    letter-spacing: -0.005em;
+  }
+  .spotlight__line {
+    display: inline !important;
+    white-space: nowrap !important;
+  }
+  .spotlight__line--accent {
+    margin-right: 6px;
+  }
+
+  /* Spotlight cards — slightly tighter */
+  .feature-3d__desc { font-size: 13.5px; line-height: 1.7; }
+
+  /* Spaces — clean card stack, smaller padding */
+  .spaces { padding: 70px 4% 80px; }
+  .spaces-band { padding: 32px 18px 36px; border-radius: 24px; }
+  .spaces-band__tiles {
+    gap: 28px !important;
+  }
+  .spaces__title { font-size: clamp(28px, 7.5vw, 38px); }
+  .spaces__sub { font-size: 14px; line-height: 1.75; }
+  .space-card { border-radius: 18px; }
+  .space-card__title { font-size: 19px; }
+  .space-card__desc { font-size: 13.5px; line-height: 1.7; }
+
+  /* Closing — compact framed luxury */
+  .closing { min-height: 80vh; padding: 70px 5%; }
+  .closing__frame { padding: 44px 18px 40px; }
+  .closing__frame::before,
+  .closing__frame::after {
+    width: 20px; height: 20px;
+    top: 8px; bottom: 8px;
+    inset-inline-start: 8px; inset-inline-end: 8px;
+  }
+  .closing__ornament { margin-bottom: 22px; gap: 10px; }
+  .closing__body { font-size: 14.5px; margin-bottom: 32px; }
+  .closing__cta { padding: 16px 32px !important; font-size: 14.5px !important; }
+  .closing__divider { margin-bottom: 24px; }
+
+  /* Register — fully compact form */
+  .register { padding: 70px 4% 70px; }
+  .register__header { margin-bottom: 42px; }
+  .register__title { font-size: clamp(26px, 7vw, 38px); margin: 18px 0 14px; }
+  .register__subtitle { font-size: 14px; line-height: 1.7; }
+  .register__form-wrap {
+    padding: 32px 16px 28px;
+    border-radius: 16px;
+  }
+  .register__progress { margin-bottom: 36px; }
+  .register__step-title { font-size: 20px; }
+  .register__step-hint { font-size: 13px; margin-bottom: 24px; }
+  .role-row__inner { padding: 14px 14px; gap: 12px; border-radius: 12px; }
+  .role-row__icon { width: 40px; height: 40px; border-radius: 10px; }
+  .role-row__name { font-size: 15px; }
+  .role-row__desc { font-size: 12.5px; line-height: 1.5; }
+  .role-row__check { width: 24px; height: 24px; }
+  .reg-chip span { padding: 10px 16px; font-size: 13px; }
+  .reg-field__input { font-size: 15px; padding: 10px 4px 12px; }
+  .reg-field__label { font-size: 12px; }
+  .register__actions { gap: 10px; }
+  .register__actions .btn-primary,
+  .register__actions .btn-secondary {
+    flex: 1;
+    min-width: 0;
+    padding: 14px 18px;
+    font-size: 14px;
+  }
+
+  /* Register success state */
+  .register__success-title { font-size: 24px; }
+  .register__success-body { font-size: 14px; }
+
+  /* Footer — full center stack */
+  .footer { padding: 50px 5% 24px; }
+  .footer__main { text-align: center; }
+  .footer__col--brand .footer__logo img { margin-left: auto; margin-right: auto; }
+  .footer__list { align-items: center; }
+  .footer__social { justify-content: center; }
+  .footer__bottom {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Nav hamburger should be visible (already wired in components.css if present) */
+  .nav__links, .nav__divider, .nav__cta { display: none; }
+  .nav__hamburger { display: flex; }
+}
+
+/* ═══════════════════════════════════════════════
+   IMAGE PROTECTION — prevent iOS Safari's native image preview /
+   long-press "Save Image" menu / accidental pinch-zoom on photos
+   ═══════════════════════════════════════════════ */
+.space-card__media img,
+.prog-card__hero-visual img,
+.prog-card__bg-scene img,
+.prog-card__bg-pattern img,
+.hero__photo img,
+.closing__photo img {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  -webkit-user-drag: none;
+}
+
+/* ═══════════════════════════════════════════════
+   TOUCH DEVICE OVERRIDES
+   On phones/tablets (no real hover), make cards
+   look "alive" by default and skip lift/glow effects
+   that depend on hover state.
+   ═══════════════════════════════════════════════ */
+@media (hover: none) {
+  /* Programs cards — keep static, no lift */
+  .prog-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  .prog-card:hover .prog-card__hero-visual img,
+  .prog-card:hover .prog-card__bg-scene img,
+  .prog-card:hover .prog-card__bg-pattern img {
+    filter: none;
+  }
+  .prog-card:hover .prog-card__corner-icon {
+    transform: none;
+    border-color: color-mix(in srgb, var(--accent) 35%, rgba(217, 205, 184, 0.16));
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Spotlight feature cards — keep static */
+  .feature-3d:hover {
+    transform: none;
+  }
+  .feature-3d:hover .feature-3d__glow {
+    opacity: 0.35;
+  }
+  .feature-3d:hover .feature-3d__visual {
+    transform: none;
+    border-color: color-mix(in srgb, var(--card-color) 32%, rgba(184, 148, 95, 0.16));
+    box-shadow:
+      inset 0 0 24px color-mix(in srgb, var(--card-color) 10%, transparent),
+      0 0 32px color-mix(in srgb, var(--card-color) 14%, transparent);
+  }
+  .feature-3d:hover .feature-3d__icon {
+    filter:
+      drop-shadow(0 0 6px color-mix(in srgb, var(--card-color) 45%, transparent))
+      drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  }
+  .feature-3d:hover .feature-3d__rule {
+    width: 44px;
+  }
+
+  /* CTA buttons — keep static glow */
+  .closing__cta:hover {
+    transform: none;
+  }
+
+  /* Audience tag colors stay default (no hover color swap) */
+  .closing__audience-item:hover {
+    color: rgba(26, 20, 16, 0.62);
+  }
+
+  /* Footer social links — keep readable default */
+  .footer__social-link:hover {
+    border-color: var(--ink-12);
+    color: var(--ink-60);
+    background: transparent;
+  }
+
+  /* Footer list link colors — keep default */
+  .footer__list a:hover {
+    color: var(--ink-60);
+  }
+}

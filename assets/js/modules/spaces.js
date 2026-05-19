@@ -1,6 +1,12 @@
 function initImmersiveHover() {
   const band = document.querySelector('.spaces-band');
   if (!band) return;
+
+  // Skip the entire immersive feature on touch devices —
+  // mobile users want a clean static card list, not a tappable swap.
+  const isTouch = !window.matchMedia('(hover: hover)').matches;
+  if (isTouch) return;
+
   const tiles = band.querySelector('.spaces-band__tiles');
   if (!tiles) return;
   const cards = band.querySelectorAll('.space-card');
