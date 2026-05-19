@@ -1,0 +1,226 @@
+/* ═══════════════════════════════════════════════
+   PER-SECTION DECORATIVE IDENTITIES (Phase 5.7)
+   Each section earns its own visual character.
+   ═══════════════════════════════════════════════ */
+
+.section-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+/* ─── SPOTLIGHT: soft arcs + concentric rings ─── */
+.decor-hexagons {
+  position: absolute;
+  inset: 0;
+  opacity: 0.22;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='920' height='680' viewBox='0 0 920 680'%3E%3Cg fill='none' stroke='%230D5B5A' stroke-width='1' opacity='.34'%3E%3Ccircle cx='230' cy='330' r='170'/%3E%3Ccircle cx='230' cy='330' r='245'/%3E%3Cpath d='M470 120a310 310 0 0 1 260 420'/%3E%3Cpath d='M95 455a290 290 0 0 1 435-300'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: min(920px, 95vw) auto;
+  background-position: center 42%;
+  background-repeat: no-repeat;
+  animation: arcDrift 90s linear infinite;
+}
+@keyframes arcDrift {
+  to { transform: translate(-18px, -12px); }
+}
+
+.decor-rings {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90vmin;
+  height: 90vmin;
+  max-width: 800px;
+  max-height: 800px;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(13, 91, 90, 0.15);
+  border-radius: 50%;
+  animation: ringSpin 60s linear infinite;
+}
+.decor-rings::before,
+.decor-rings::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+}
+.decor-rings::before {
+  inset: 8%;
+  border: 1px solid rgba(13, 91, 90, 0.08);
+  animation: ringSpin 40s linear infinite reverse;
+}
+.decor-rings::after {
+  inset: 18%;
+  border: 1px solid rgba(13, 91, 90, 0.12);
+}
+@keyframes ringSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.decor-corners span {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  opacity: 0.4;
+}
+.decor-corners span:nth-child(1) {
+  top: 60px;
+  right: 60px;
+  border-top: 1px solid var(--brand-cyan);
+  border-right: 1px solid var(--brand-cyan);
+}
+.decor-corners span:nth-child(2) {
+  top: 60px;
+  left: 60px;
+  border-top: 1px solid var(--brand-cyan);
+  border-left: 1px solid var(--brand-cyan);
+}
+.decor-corners span:nth-child(3) {
+  bottom: 60px;
+  right: 60px;
+  border-bottom: 1px solid var(--brand-cyan);
+  border-right: 1px solid var(--brand-cyan);
+}
+.decor-corners span:nth-child(4) {
+  bottom: 60px;
+  left: 60px;
+  border-bottom: 1px solid var(--brand-cyan);
+  border-left: 1px solid var(--brand-cyan);
+}
+
+/* ─── PROGRAMS: floating rings + network lines ─── */
+.decor-diamond {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border: 1px solid rgba(228, 73, 102, 0.2);
+  border-radius: 50%;
+  animation: ringFloat 18s ease-in-out infinite;
+}
+.decor-diamond--1 {
+  top: 12%;
+  right: 8%;
+}
+.decor-diamond--2 {
+  bottom: 20%;
+  left: 5%;
+  width: 120px;
+  height: 120px;
+  border-color: rgba(77, 68, 150, 0.18);
+  animation-duration: 22s;
+  animation-delay: -5s;
+}
+.decor-diamond--3 {
+  top: 55%;
+  right: 25%;
+  width: 50px;
+  height: 50px;
+  border-color: rgba(13, 91, 90, 0.2);
+  animation-duration: 16s;
+  animation-delay: -10s;
+}
+@keyframes ringFloat {
+  0%, 100% { transform: translate(0, 0); }
+  50%      { transform: translate(-15px, -25px); }
+}
+
+.decor-network {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+/* ─── CLOSING: radial burst + sparkle points ─── */
+.decor-burst {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 120vmin;
+  height: 120vmin;
+  transform: translate(-50%, -50%);
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(13, 91, 90, 0.05) 30deg,
+    transparent 60deg,
+    transparent 90deg,
+    rgba(13, 91, 90, 0.06) 120deg,
+    transparent 150deg,
+    transparent 210deg,
+    rgba(13, 91, 90, 0.04) 240deg,
+    transparent 270deg,
+    transparent 330deg,
+    rgba(13, 91, 90, 0.05) 360deg
+  );
+  animation: burstRotate 60s linear infinite;
+}
+@keyframes burstRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.decor-sparkles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--teal-signature);
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(13, 91, 90, 0.8);
+  animation: sparkle 3s ease-in-out infinite;
+}
+.decor-sparkles span:nth-child(1) { top: 25%; right: 18%; animation-delay: 0s; }
+.decor-sparkles span:nth-child(2) { top: 65%; left: 22%;  animation-delay: 0.6s; }
+.decor-sparkles span:nth-child(3) { top: 35%; left: 75%;  animation-delay: 1.2s; }
+.decor-sparkles span:nth-child(4) { top: 80%; right: 65%; animation-delay: 1.8s; }
+.decor-sparkles span:nth-child(5) { top: 15%; left: 45%;  animation-delay: 2.4s; }
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50%      { opacity: 1; transform: scale(1.4); }
+}
+
+/* ─── REGISTER: subtle dot matrix + glow orb ─── */
+.decor-dotmatrix {
+  position: absolute;
+  inset: 0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='820' height='620' viewBox='0 0 820 620'%3E%3Cg fill='none' stroke='%230D5B5A' stroke-width='1' opacity='.22'%3E%3Ccircle cx='410' cy='310' r='155'/%3E%3Ccircle cx='410' cy='310' r='250'/%3E%3Cpath d='M120 380a300 300 0 0 1 570-160'/%3E%3Cpath d='M700 380a270 270 0 0 1-460 170'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: min(820px, 96vw) auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.34;
+  mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 70%);
+}
+
+.decor-glow-orb {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    circle,
+    rgba(13, 91, 90, 0.12) 0%,
+    rgba(13, 91, 90, 0.06) 40%,
+    transparent 70%
+  );
+  filter: blur(40px);
+  animation: orbPulse 8s ease-in-out infinite;
+}
+@keyframes orbPulse {
+  0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 1;   transform: translate(-50%, -50%) scale(1.1); }
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .section-decor * {
+    animation: none !important;
+  }
+}

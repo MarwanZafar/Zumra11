@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>زمرة 11 — منصة الابتكار في تجربة الزائر | Zumra 11 Innovation Hub</title>
+  <meta name="description" content="زمرة 11 هي البنية التحتية لابتكار تجربة الزائر في مكة المكرمة. منصة تربط الشركات والمستثمرين بسوق الحج والعمرة عبر نموذج تشغيلي من 5 طبقات.">
+  <meta name="theme-color" content="#0E1117">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ar_SA">
+  <meta property="og:title" content="زمرة 11 — منصة الابتكار في تجربة الزائر">
+  <meta property="og:description" content="البنية التحتية لابتكار تجربة الزائر في مكة المكرمة. نموذج تشغيلي من 5 طبقات يربط الشركات والمستثمرين بسوق الحج والعمرة.">
+  <meta property="og:image" content="images/building-map.jpg">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="زمرة 11 — منصة الابتكار في تجربة الزائر">
+  <meta name="twitter:description" content="البنية التحتية لابتكار تجربة الزائر في مكة المكرمة.">
+  <meta name="twitter:image" content="images/building-map.jpg">
+
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link rel="preload" as="image" href="images/logo.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;900&family=Inter:wght@300;400;500&display=swap">
+
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/ambient.css">
+  <link rel="stylesheet" href="assets/css/section-identities.css">
+  <link rel="stylesheet" href="assets/css/sections.css">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="assets/js/lib/lenis.min.js" defer></script>
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+
+  <!-- Global Ambient Background -->
+  <div class="ambient" aria-hidden="true">
+    <div class="ambient__grid"></div>
+    <div class="ambient__aurora ambient__aurora--1"></div>
+    <div class="ambient__aurora ambient__aurora--2"></div>
+    <div class="ambient__aurora ambient__aurora--3"></div>
+    <div class="ambient__particles" id="ambientParticles"></div>
+  </div>
+
+  <!-- Loader -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-logo-wrap">
+      <img id="loader-logo" src="images/logo.png" alt="">
+    </div>
+    <div class="loader-tagline-ar"><span class="loader-tagline-ar__text"></span><span class="caret"></span></div>
+    <div class="loader-tagline-en">Where Ideas Take Shape</div>
+    <div class="loader-progress" role="progressbar" aria-label="جاري التحميل">
+      <span class="loader-progress__seg"></span>
+      <span class="loader-progress__seg"></span>
+      <span class="loader-progress__seg"></span>
+      <span class="loader-progress__seg"></span>
+    </div>
+  </div>
+
+  <!-- Floating Nav -->
+  <nav class="nav" aria-label="التنقل الرئيسي">
+    <div class="nav__inner">
+      <a href="#hero" class="nav__logo" data-scroll-to="hero" data-cursor="link" aria-label="زمرة 11">
+        <img src="images/logo.png" alt="زمرة 11">
+      </a>
+
+      <span class="nav__divider" aria-hidden="true"></span>
+
+      <ul class="nav__links">
+        <li><a href="#hero"     class="nav__link is-active" data-scroll-to="hero"     data-cursor="link">الرئيسية</a></li>
+        <li><a href="#spaces"   class="nav__link"           data-scroll-to="spaces"   data-cursor="link">المساحات</a></li>
+        <li><a href="#programs" class="nav__link"           data-scroll-to="programs" data-cursor="link">البرامج</a></li>
+        <li><a href="#register" class="nav__link"           data-scroll-to="register" data-cursor="link">التسجيل</a></li>
+      </ul>
+
+      <span class="nav__divider" aria-hidden="true"></span>
+
+      <a href="#register" class="nav__cta" data-scroll-to="register" data-cursor="cta">
+        سجّل اهتمامك
+        <span class="nav__cta-arrow" aria-hidden="true">←</span>
+      </a>
+    </div>
+  </nav>
+
+  <button class="nav__hamburger" aria-label="القائمة" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
+  <div class="nav__mobile" id="navMobile" aria-hidden="true">
+    <ul class="nav__mobile-links">
+      <li><a href="#hero"     data-scroll-to="hero"     data-cursor="link">الرئيسية</a></li>
+      <li><a href="#spaces"   data-scroll-to="spaces"   data-cursor="link">المساحات</a></li>
+      <li><a href="#programs" data-scroll-to="programs" data-cursor="link">البرامج</a></li>
+      <li><a href="#register" data-scroll-to="register" data-cursor="link">التسجيل</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section — Luxury cinematic editorial -->
+  <section id="hero" class="hero" data-section="hero">
+    <div class="hero__bg-wrap" aria-hidden="true">
+
+      <div class="hero__warm-gradient"></div>
+
+      <div class="hero__bg-glow hero__bg-glow--terra"></div>
+      <div class="hero__bg-glow hero__bg-glow--teal"></div>
+      <div class="hero__bg-glow hero__bg-glow--amber"></div>
+
+      <div class="hero__photo">
+        <img src="images/hero.jpg" alt="" loading="eager" decoding="async">
+      </div>
+
+      <div class="hero__particles" id="heroParticles"></div>
+
+      <div class="hero__vignette"></div>
+
+      <div class="hero__ornaments" aria-hidden="true">
+        <span class="hero-corner hero-corner--tl"></span>
+        <span class="hero-corner hero-corner--tr"></span>
+        <span class="hero-corner hero-corner--bl"></span>
+        <span class="hero-corner hero-corner--br"></span>
+        <svg class="hero-flourish hero-flourish--top" viewBox="0 0 400 60" preserveAspectRatio="none">
+          <path d="M0 30 Q100 5 200 30 T400 30" stroke="rgba(184,148,95,0.22)" stroke-width="0.6" fill="none"/>
+        </svg>
+      </div>
+
+    </div>
+
+    <div class="hero__content">
+
+      <div class="eyebrow">
+        <span class="eyebrow__dot"></span>
+        <span class="eyebrow__line"></span>
+        <span class="eyebrow__text">منصة الابتكار في تجربة الزائر</span>
+      </div>
+
+      <h1 class="hero__headline">
+        <span class="hero__line">
+          <span class="hero__word"><span class="hero__word-inner">نبتكر</span></span>
+          <span class="hero__word"><span class="hero__word-inner">تجربة</span></span>
+          <span class="hero__word hero__word--accent"><span class="hero__word-inner">الزائر</span></span>
+        </span>
+      </h1>
+
+      <div class="hero__divider">
+        <span class="hero__divider-dot" aria-hidden="true"></span>
+      </div>
+
+      <p class="hero__sub-ar">حج وعمرة <span class="hero__sub-sep">|</span> تجربة الضيف</p>
+
+      <p class="hero__body">
+        زمرة 11 مركز ابتكار يجمع رواد الأعمال، الشركات، المستثمرين،
+        وأصحاب الحلول في بيئة واحدة لتطوير الأفكار، اختبار الحلول،
+        وبناء فرص تعاون قابلة للنمو في مجالات تجربة الزائر.
+      </p>
+
+      <div class="hero__cta-row">
+        <button class="btn-primary" data-action="register" data-cursor="cta">
+          سجّل اهتمامك الآن
+          <span class="btn-primary__arrow" aria-hidden="true">←</span>
+        </button>
+        <button class="btn-secondary" data-action="explore" data-cursor="link">
+          استكشف زمرة 11
+        </button>
+      </div>
+
+      <div class="hero__quote">
+        <span class="hero__quote-bar"></span>
+        <span class="hero__quote-text">عالمية في الرؤية، محلية في الأثر</span>
+        <span class="hero__quote-bar hero__quote-bar--end"></span>
+      </div>
+
+    </div>
+
+    <div class="hero__scroll-indicator" aria-hidden="true">
+      <span class="hero__scroll-label">اسحب للأسفل</span>
+      <div class="hero__scroll-line">
+        <span class="hero__scroll-tip"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Spotlight: tagline + 4 premium 3D feature cards -->
+  <section id="spotlight" class="spotlight" data-section="spotlight">
+
+    <div class="section-decor section-decor--spotlight" aria-hidden="true">
+      <div class="decor-hexagons"></div>
+      <div class="decor-rings"></div>
+      <div class="decor-rays"></div>
+    </div>
+
+    <div class="spotlight__ambient" aria-hidden="true">
+      <div class="sl-spotlight"></div>
+      <div class="sl-haze sl-haze--left"></div>
+      <div class="sl-haze sl-haze--right"></div>
+      <div class="sl-grain"></div>
+    </div>
+
+    <div class="spotlight__container">
+
+      <h2 class="spotlight__tagline">
+        <span class="spotlight__line">
+          <span class="spotlight__word"><span class="spotlight__word-inner">عالمية</span></span>
+          <span class="spotlight__word"><span class="spotlight__word-inner">في</span></span>
+          <span class="spotlight__word"><span class="spotlight__word-inner">الرؤية،</span></span>
+        </span>
+        <span class="spotlight__line spotlight__line--accent">
+          <span class="spotlight__word"><span class="spotlight__word-inner">محلية</span></span>
+          <span class="spotlight__word"><span class="spotlight__word-inner">في</span></span>
+          <span class="spotlight__word"><span class="spotlight__word-inner">الأثر</span></span>
+        </span>
+      </h2>
+
+      <div class="features-grid">
+
+        <!-- Card 1: برامج الابتكار -->
+        <article class="feature-3d" style="--card-color: #5FB3B1; --card-glow: rgba(95,179,177,0.4);">
+          <div class="feature-3d__glow"></div>
+          <div class="feature-3d__surface">
+            <div class="feature-3d__visual" aria-hidden="true">
+              <svg class="feature-3d__icon" viewBox="0 0 60 60" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <!-- Bulb -->
+                <path d="M 30 8 C 22 8 16 14 16 22 C 16 27 19 31 22 33.5 C 23.2 34.6 23.5 36 23.5 37.5 L 23.5 40 L 36.5 40 L 36.5 37.5 C 36.5 36 36.8 34.6 38 33.5 C 41 31 44 27 44 22 C 44 14 38 8 30 8 Z" stroke-width="1.6"/>
+                <!-- Filament -->
+                <path d="M 24 22 L 27 28 L 30 22 L 33 28 L 36 22" stroke-width="1.3"/>
+                <!-- Base segments -->
+                <line x1="24" y1="44" x2="36" y2="44" stroke-width="1.8"/>
+                <line x1="25" y1="47.5" x2="35" y2="47.5" stroke-width="1.8"/>
+                <line x1="26.5" y1="51" x2="33.5" y2="51" stroke-width="1.8"/>
+              </svg>
+            </div>
+            <div class="feature-3d__body">
+              <h3 class="feature-3d__title">برامج الابتكار</h3>
+              <p class="feature-3d__desc">من الفكرة إلى الحل</p>
+            </div>
+            <span class="feature-3d__rule" aria-hidden="true"></span>
+          </div>
+        </article>
+
+        <!-- Card 2: شراكات واستثمار -->
+        <article class="feature-3d" style="--card-color: #B89460; --card-glow: rgba(184,148,95,0.4);">
+          <div class="feature-3d__glow"></div>
+          <div class="feature-3d__surface">
+            <div class="feature-3d__visual" aria-hidden="true">
+              <svg class="feature-3d__icon" viewBox="0 0 60 60" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <!-- Interlocking rings (wedding-band style) -->
+                <circle cx="22" cy="30" r="13" stroke-width="2"/>
+                <circle cx="38" cy="30" r="13" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="feature-3d__body">
+              <h3 class="feature-3d__title">شراكات واستثمار</h3>
+              <p class="feature-3d__desc">نربط الفرص بالشركاء</p>
+            </div>
+            <span class="feature-3d__rule" aria-hidden="true"></span>
+          </div>
+        </article>
+
+        <!-- Card 3: تطوير القدرات -->
+        <article class="feature-3d" style="--card-color: #5FB3B1; --card-glow: rgba(95,179,177,0.4);">
+          <div class="feature-3d__glow"></div>
+          <div class="feature-3d__surface">
+            <div class="feature-3d__visual" aria-hidden="true">
+              <svg class="feature-3d__icon" viewBox="0 0 60 60" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <!-- Mortarboard (diamond top) -->
+                <path d="M 8 22 L 30 12 L 52 22 L 30 32 Z" stroke-width="1.7"/>
+                <!-- Cap base / band -->
+                <path d="M 19 26.4 L 19 36 C 19 36 23 40 30 40 C 37 40 41 36 41 36 L 41 26.4" stroke-width="1.7"/>
+                <!-- Tassel line -->
+                <path d="M 47 22 L 47 33" stroke-width="1.5"/>
+                <!-- Tassel knot -->
+                <circle cx="47" cy="35" r="1.8" fill="currentColor" stroke="none"/>
+              </svg>
+            </div>
+            <div class="feature-3d__body">
+              <h3 class="feature-3d__title">تطوير القدرات</h3>
+              <p class="feature-3d__desc">تنمية المهارات والمعرفة</p>
+            </div>
+            <span class="feature-3d__rule" aria-hidden="true"></span>
+          </div>
+        </article>
+
+        <!-- Card 4: نمو وتوسع -->
+        <article class="feature-3d" style="--card-color: #B89460; --card-glow: rgba(184,148,95,0.4);">
+          <div class="feature-3d__glow"></div>
+          <div class="feature-3d__surface">
+            <div class="feature-3d__visual" aria-hidden="true">
+              <svg class="feature-3d__icon" viewBox="0 0 60 60" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                <!-- Baseline -->
+                <line x1="10" y1="48" x2="50" y2="48" stroke-width="1.5"/>
+                <!-- Ascending bars -->
+                <rect x="13" y="34" width="8" height="14" rx="1.2" stroke-width="1.6"/>
+                <rect x="26" y="26" width="8" height="22" rx="1.2" stroke-width="1.6"/>
+                <rect x="39" y="18" width="8" height="30" rx="1.2" stroke-width="1.6"/>
+                <!-- Up arrow -->
+                <path d="M 38 14 L 50 4" stroke-width="1.6"/>
+                <path d="M 44 4 L 50 4 L 50 10" stroke-width="1.6"/>
+              </svg>
+            </div>
+            <div class="feature-3d__body">
+              <h3 class="feature-3d__title">نمو وتوسع</h3>
+              <p class="feature-3d__desc">دعم الحلول القابلة للنمو</p>
+            </div>
+            <span class="feature-3d__rule" aria-hidden="true"></span>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Spaces: Luxury light-mode editorial showcase -->
+  <section id="spaces" class="spaces" data-section="spaces">
+
+    <div class="spaces__container">
+
+      <div class="spaces-band">
+
+        <div class="spaces-band__backdrop" aria-hidden="true">
+          <div class="spaces-band__bg-image" data-bg="1" style="background-image: url('images/space-events.jpg');"></div>
+          <div class="spaces-band__bg-image" data-bg="2" style="background-image: url('images/space-coworking.jpeg');"></div>
+          <div class="spaces-band__bg-image" data-bg="3" style="background-image: url('images/space-innovation-room.jpg');"></div>
+          <div class="spaces-band__bg-image" data-bg="4" style="background-image: url('images/space-private-offices.jpg');"></div>
+          <div class="spaces-band__bg-veil"></div>
+        </div>
+
+        <div class="spaces-band__ornaments" aria-hidden="true">
+          <svg class="sb-ornament sb-ornament--top" viewBox="0 0 600 80" preserveAspectRatio="none">
+            <path d="M0 40 Q150 10 300 40 T600 40" stroke="rgba(13,91,90,0.18)" stroke-width="0.8" fill="none"/>
+            <path d="M0 50 Q150 20 300 50 T600 50" stroke="rgba(184,148,95,0.14)" stroke-width="0.6" fill="none"/>
+          </svg>
+          <svg class="sb-ornament sb-ornament--bottom" viewBox="0 0 600 80" preserveAspectRatio="none">
+            <path d="M0 40 Q150 70 300 40 T600 40" stroke="rgba(13,91,90,0.14)" stroke-width="0.8" fill="none"/>
+          </svg>
+          <span class="sb-blob sb-blob--1"></span>
+          <span class="sb-blob sb-blob--2"></span>
+          <span class="sb-blob sb-blob--3"></span>
+          <span class="sb-corner sb-corner--tr"></span>
+          <span class="sb-corner sb-corner--bl"></span>
+        </div>
+
+        <div class="spaces-band__inner">
+
+          <header class="spaces-band__header">
+            <div class="spaces-band__header-text">
+              <h2 class="spaces__title">
+                مساحات <em>صُممت</em><br>للابتكار
+              </h2>
+            </div>
+            <div class="spaces-band__header-meta">
+              <span class="spaces__accent-line" aria-hidden="true"></span>
+              <p class="spaces__sub">
+                توفر زمرة 11 مساحات متنوعة تدعم العمل، التعاون، العرض، والتجريب —
+                نقاط تفاعل تجمع الأشخاص المناسبين حول أفكار وفرص قابلة للتطوير.
+              </p>
+            </div>
+          </header>
+
+          <div class="spaces-band__divider" aria-hidden="true">
+            <span class="sb-divider-line"></span>
+            <span class="sb-divider-dot"></span>
+            <span class="sb-divider-line"></span>
+          </div>
+
+          <div class="spaces-band__tiles">
+
+            <article class="space-card" data-tile="1">
+              <div class="space-card__media">
+                <img src="images/space-events.jpg" alt="مساحات العرض والفعاليات" loading="lazy" decoding="async">
+                <span class="space-card__shine" aria-hidden="true"></span>
+              </div>
+              <div class="space-card__body">
+                <div class="space-card__meta">
+                  <span class="space-card__index">٠١</span>
+                  <span class="space-card__rule" aria-hidden="true"></span>
+                </div>
+                <h3 class="space-card__title">مساحات العرض والفعاليات</h3>
+                <p class="space-card__desc">
+                  مساحات مهيأة لعرض الأفكار، إطلاق المبادرات، واستضافة اللقاءات
+                  والمؤتمرات النوعية في بيئة احترافية مجهّزة بأحدث التقنيات.
+                </p>
+              </div>
+            </article>
+
+            <article class="space-card" data-tile="2">
+              <div class="space-card__media">
+                <img src="images/space-coworking.jpeg" alt="مساحات العمل المشتركة" loading="lazy" decoding="async">
+                <span class="space-card__shine" aria-hidden="true"></span>
+              </div>
+              <div class="space-card__body">
+                <div class="space-card__meta">
+                  <span class="space-card__index">٠٢</span>
+                  <span class="space-card__rule" aria-hidden="true"></span>
+                </div>
+                <h3 class="space-card__title">مساحات العمل المشتركة</h3>
+                <p class="space-card__desc">
+                  بيئة مرنة للتعاون اليومي، بناء العلاقات، وتبادل الخبرات بين
+                  رواد الأعمال والمبتكرين والمستثمرين في مجتمع واحد.
+                </p>
+              </div>
+            </article>
+
+            <article class="space-card" data-tile="3">
+              <div class="space-card__media">
+                <img src="images/space-innovation-room.jpg" alt="مناطق الابتكار" loading="lazy" decoding="async">
+                <span class="space-card__shine" aria-hidden="true"></span>
+              </div>
+              <div class="space-card__body">
+                <div class="space-card__meta">
+                  <span class="space-card__index">٠٣</span>
+                  <span class="space-card__rule" aria-hidden="true"></span>
+                </div>
+                <h3 class="space-card__title">مناطق الابتكار</h3>
+                <p class="space-card__desc">
+                  بيئة مهيأة للتجريب، تطوير النماذج الأولية، واختبار الحلول الجديدة
+                  قبل إطلاقها — مزوّدة بأدوات وتقنيات متقدمة.
+                </p>
+              </div>
+            </article>
+
+            <article class="space-card" data-tile="4">
+              <div class="space-card__media">
+                <img src="images/space-private-offices.jpg" alt="المكاتب الخاصة" loading="lazy" decoding="async">
+                <span class="space-card__shine" aria-hidden="true"></span>
+              </div>
+              <div class="space-card__body">
+                <div class="space-card__meta">
+                  <span class="space-card__index">٠٤</span>
+                  <span class="space-card__rule" aria-hidden="true"></span>
+                </div>
+                <h3 class="space-card__title">المكاتب الخاصة</h3>
+                <p class="space-card__desc">
+                  مساحات مخصصة للشركات والفرق التي تحتاج تركيزًا وخصوصية في عملها
+                  اليومي — تصاميم احترافية ومرافق متكاملة.
+                </p>
+              </div>
+            </article>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══ Four-Stage Journey Diagram ═══ -->
+  <section id="roadmap" class="rm-section" data-section="roadmap" aria-label="رحلة زمرة 11">
+
+    <div class="rm-section__atmosphere" aria-hidden="true">
+      <div class="rm-haze rm-haze--left"></div>
+      <div class="rm-haze rm-haze--right"></div>
+      <div class="rm-grain"></div>
+    </div>
+
+    <header class="rm-section__header">
+      <h2 class="rm-section__title">
+        بيئة تجمع <em>المساحة والمعرفة</em>
+      </h2>
+    </header>
+
+    <div class="rm-journey">
+
+      <svg class="rm-journey__ribbon" viewBox="0 0 1200 200" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="ribbon-1" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#5FB3B1" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#B89460" stop-opacity="0.55"/>
+          </linearGradient>
+          <linearGradient id="ribbon-2" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#B89460" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#5FB3B1" stop-opacity="0.55"/>
+          </linearGradient>
+          <linearGradient id="ribbon-3" x1="100%" y1="0%" x2="0%" y2="0%">
+            <stop offset="0%" stop-color="#5FB3B1" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#B89460" stop-opacity="0.55"/>
+          </linearGradient>
+          <filter id="ribbon-glow" x="-10%" y="-50%" width="120%" height="200%">
+            <feGaussianBlur stdDeviation="4"/>
+          </filter>
+        </defs>
+
+        <!-- Soft glow halo behind ribbon -->
+        <g opacity="0.4" filter="url(#ribbon-glow)">
+          <path d="M 1050 138 C 950 138, 850 62, 750 62" stroke="#5FB3B1" stroke-width="48" fill="none" stroke-linecap="round"/>
+          <path d="M 750 62 C 650 62, 550 138, 450 138" stroke="#B89460" stroke-width="48" fill="none" stroke-linecap="round"/>
+          <path d="M 450 138 C 350 138, 250 62, 150 62" stroke="#5FB3B1" stroke-width="48" fill="none" stroke-linecap="round"/>
+        </g>
+
+        <!-- Main ribbon segments -->
+        <path d="M 1050 138 C 950 138, 850 62, 750 62" stroke="url(#ribbon-1)" stroke-width="40" fill="none" stroke-linecap="round"/>
+        <path d="M 750 62 C 650 62, 550 138, 450 138" stroke="url(#ribbon-2)" stroke-width="40" fill="none" stroke-linecap="round"/>
+        <path d="M 450 138 C 350 138, 250 62, 150 62" stroke="url(#ribbon-3)" stroke-width="40" fill="none" stroke-linecap="round"/>
+
+        <!-- Inner highlight on top of ribbon -->
+        <path d="M 1050 138 C 950 138, 850 62, 750 62 C 650 62, 550 138, 450 138 C 350 138, 250 62, 150 62"
+              stroke="rgba(255, 235, 200, 0.3)" stroke-width="1.8" fill="none" stroke-linecap="round"/>
+
+        <!-- Dashed thread overlay -->
+        <path d="M 1050 138 C 950 138, 850 62, 750 62 C 650 62, 550 138, 450 138 C 350 138, 250 62, 150 62"
+              stroke="rgba(244, 235, 216, 0.5)" stroke-width="1" fill="none" stroke-dasharray="3 5"/>
+
+        <!-- Small accent dots along the ribbon mid-points -->
+        <circle cx="900" cy="100" r="3.5" fill="#F4EBD8" fill-opacity="0.85"/>
+        <circle cx="900" cy="100" r="6" fill="none" stroke="rgba(244,235,216,0.4)" stroke-width="0.7"/>
+        <circle cx="600" cy="100" r="3.5" fill="#F4EBD8" fill-opacity="0.85"/>
+        <circle cx="600" cy="100" r="6" fill="none" stroke="rgba(244,235,216,0.4)" stroke-width="0.7"/>
+        <circle cx="300" cy="100" r="3.5" fill="#F4EBD8" fill-opacity="0.85"/>
+        <circle cx="300" cy="100" r="6" fill="none" stroke="rgba(244,235,216,0.4)" stroke-width="0.7"/>
+      </svg>
+
+      <!-- ═══ Station 1 ═══ -->
+      <div class="rm-circle rm-circle--low" data-step="1" style="--accent: #5FB3B1; --accent-soft: rgba(95,179,177,0.4);">
+        <div class="rm-circle__halo"></div>
+        <div class="rm-circle__inner">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="18" r="5"/>
+            <circle cx="30" cy="18" r="5"/>
+            <path d="M 8 36 C 8 30, 12 27, 18 27 C 24 27, 28 30, 28 36"/>
+            <path d="M 20 36 C 20 30, 24 27, 30 27 C 36 27, 40 30, 40 36"/>
+          </svg>
+        </div>
+      </div>
+      <div class="rm-label rm-label--low" data-step="1" style="--accent: #5FB3B1;">
+        <span class="rm-label__connector"></span>
+        <h3 class="rm-label__title">التعاون</h3>
+        <p class="rm-label__desc">نوفر لك بيئة تشاركية تربطك بخبرات ومجتمعات ملهمة.</p>
+      </div>
+
+      <!-- ═══ Station 2 ═══ -->
+      <div class="rm-circle rm-circle--high" data-step="2" style="--accent: #B89460; --accent-soft: rgba(184,148,95,0.4);">
+        <div class="rm-circle__halo"></div>
+        <div class="rm-circle__inner">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M 18 8 L 18 18 L 12 32 C 11 35, 13 38, 16 38 L 32 38 C 35 38, 37 35, 36 32 L 30 18 L 30 8"/>
+            <line x1="16" y1="8" x2="32" y2="8"/>
+            <path d="M 14 28 Q 19 30, 24 28 Q 29 26, 34 28" fill="currentColor" fill-opacity="0.18" stroke-width="0"/>
+            <circle cx="20" cy="32" r="1.4" fill="currentColor" fill-opacity="0.65"/>
+            <circle cx="26" cy="34" r="1" fill="currentColor" fill-opacity="0.55"/>
+          </svg>
+        </div>
+      </div>
+      <div class="rm-label rm-label--high" data-step="2" style="--accent: #B89460;">
+        <h3 class="rm-label__title">التجربة</h3>
+        <p class="rm-label__desc">نمنحك مساحة لتجربة أفكارك وتحويلها إلى نماذج واقعية.</p>
+        <span class="rm-label__connector"></span>
+      </div>
+
+      <!-- ═══ Station 3 ═══ -->
+      <div class="rm-circle rm-circle--low" data-step="3" style="--accent: #5FB3B1; --accent-soft: rgba(95,179,177,0.4);">
+        <div class="rm-circle__halo"></div>
+        <div class="rm-circle__inner">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="6" y="10" width="36" height="22" rx="2"/>
+            <path d="M 16 38 L 32 38"/>
+            <path d="M 24 32 L 24 38"/>
+            <path d="M 13 22 L 20 16 L 26 21 L 34 13"/>
+            <circle cx="34" cy="13" r="1.5" fill="currentColor"/>
+          </svg>
+        </div>
+      </div>
+      <div class="rm-label rm-label--low" data-step="3" style="--accent: #5FB3B1;">
+        <span class="rm-label__connector"></span>
+        <h3 class="rm-label__title">العرض</h3>
+        <p class="rm-label__desc">ندعمك بعرض أفكارك وحلولك أمام جمهورك المناسب.</p>
+      </div>
+
+      <!-- ═══ Station 4 ═══ -->
+      <div class="rm-circle rm-circle--high" data-step="4" style="--accent: #B89460; --accent-soft: rgba(184,148,95,0.4);">
+        <div class="rm-circle__halo"></div>
+        <div class="rm-circle__inner">
+          <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="24" y1="40" x2="24" y2="20"/>
+            <path d="M 24 28 C 18 28, 14 24, 13 18 C 18 18, 22 22, 24 28 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M 24 22 C 30 22, 34 18, 35 12 C 30 12, 26 16, 24 22 Z" fill="currentColor" fill-opacity="0.15"/>
+            <circle cx="24" cy="14" r="2.5" fill="currentColor" fill-opacity="0.7"/>
+            <path d="M 24 14 L 24 6 M 21 9 L 24 6 L 27 9"/>
+            <line x1="12" y1="40" x2="36" y2="40"/>
+          </svg>
+        </div>
+      </div>
+      <div class="rm-label rm-label--high" data-step="4" style="--accent: #B89460;">
+        <h3 class="rm-label__title">النمو</h3>
+        <p class="rm-label__desc">نساعدك على تطوير أعمالك وتوسيع أثرها واستدامتها.</p>
+        <span class="rm-label__connector"></span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Programs: Bento grid of البرامج والأنشطة -->
+  <section id="programs" class="programs" data-section="programs">
+
+    <div class="programs__atmosphere" aria-hidden="true">
+      <div class="prog-haze prog-haze--left"></div>
+      <div class="prog-haze prog-haze--right"></div>
+      <div class="prog-grain"></div>
+    </div>
+
+    <div class="programs__intro">
+      <h2 class="programs__title">
+        برامج وأنشطة <em>تحرّك</em> الأفكار
+      </h2>
+      <p class="programs__subtitle">
+        تجمع زمرة 11 رواد الأعمال، مزودي الحلول، الشركات، والمستثمرين المهتمين
+        من خلال برامج وفعاليات نوعية تدعم انتقال الأفكار من الرؤية إلى التطبيق.
+      </p>
+    </div>
+
+    <div class="programs__bento">
+
+      <!-- ══ Card 01 : برامج الابتكار — Hero card (tall, rightmost) ══ -->
+      <article class="prog-card prog-card--hero" data-step="1" style="--accent: #4A8B8E; --accent-soft: rgba(13,91,90,0.35);">
+        <span class="prog-card__corner-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2 L14 8 L20 8 L15 12 L17 18 L12 14 L7 18 L9 12 L4 8 L10 8 Z" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M12 14 L10 22 M14 22 L12 14" stroke-width="1.2"/>
+          </svg>
+        </span>
+        <div class="prog-card__hero-visual" aria-hidden="true">
+          <img src="images/programs/01_innovation_pulse.jpg" alt="" loading="lazy">
+        </div>
+        <div class="prog-card__content">
+          <h3 class="prog-card__name">برامج الابتكار</h3>
+          <p class="prog-card__desc">برامج تساعد على تطوير الأفكار الابتكارية وتحويلها إلى حلول قابلة للتطبيق.</p>
+        </div>
+      </article>
+
+      <!-- ══ Card 02 : ورش العمل — Wide card with workshop scene ══ -->
+      <article class="prog-card prog-card--wide" data-step="2" style="--accent: #C46A36; --accent-soft: rgba(196,106,54,0.35);">
+        <span class="prog-card__corner-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="8" cy="9" r="3"/>
+            <circle cx="16" cy="9" r="3"/>
+            <path d="M3 20c0-2.5 2.5-4 5-4s5 1.5 5 4M13 20c0-2.5 2.5-4 5-4s5 1.5 5 4"/>
+          </svg>
+        </span>
+        <div class="prog-card__bg-scene" aria-hidden="true">
+          <img src="images/programs/02_workshop_chamber.jpg" alt="" loading="lazy">
+        </div>
+        <div class="prog-card__content">
+          <h3 class="prog-card__name">ورش العمل</h3>
+          <p class="prog-card__desc">ورش تفاعلية لبناء المهارات، تطوير الحلول، وتجاوز التحديات.</p>
+        </div>
+      </article>
+
+      <!-- ══ Card 03 : التجريب الميداني — Topographic + pin ══ -->
+      <article class="prog-card" data-step="3" style="--accent: #4A8B8E; --accent-soft: rgba(13,91,90,0.35);">
+        <span class="prog-card__corner-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22 C12 22, 5 14, 5 9 C5 5.13 8.13 2 12 2 C15.87 2 19 5.13 19 9 C19 14, 12 22, 12 22 Z" fill="currentColor" fill-opacity="0.15"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+        </span>
+        <div class="prog-card__bg-pattern" aria-hidden="true">
+          <img src="images/programs/03_field_flow.jpg" alt="" loading="lazy">
+        </div>
+        <div class="prog-card__content">
+          <h3 class="prog-card__name">التجريب الميداني</h3>
+          <p class="prog-card__desc">تمكين اختبار الحلول في بيئات أقرب للاحتياج الفعلي.</p>
+        </div>
+      </article>
+
+      <!-- ══ Card 04 : جلسات المعرفة — Auditorium ══ -->
+      <article class="prog-card" data-step="4" style="--accent: #4A8B8E; --accent-soft: rgba(13,91,90,0.35);">
+        <span class="prog-card__corner-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M4 22 C4 17 7.5 14 12 14 C16.5 14 20 17 20 22"/>
+          </svg>
+        </span>
+        <div class="prog-card__bg-scene" aria-hidden="true">
+          <img src="images/programs/04_knowledge_hall.jpg" alt="" loading="lazy">
+        </div>
+        <div class="prog-card__content">
+          <h3 class="prog-card__name">جلسات المعرفة</h3>
+          <p class="prog-card__desc">جلسات نوعية مع خبراء وممارسين لمشاركة التجارب والرؤى.</p>
+        </div>
+      </article>
+
+      <!-- ══ Card 05 : فعاليات عرض الحلول — Holographic display ══ -->
+      <article class="prog-card" data-step="5" style="--accent: #4A8B8E; --accent-soft: rgba(13,91,90,0.35);">
+        <span class="prog-card__corner-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="13" rx="1" fill="currentColor" fill-opacity="0.12"/>
+            <path d="M12 17 L12 20 M8 20 L16 20"/>
+            <path d="M7 13 L10 10 L13 12 L17 7" stroke-width="1.2"/>
+          </svg>
+        </span>
+        <div class="prog-card__bg-scene prog-card__bg-scene--bottom" aria-hidden="true">
+          <img src="images/programs/05_solution_showcase.jpg" alt="" loading="lazy">
+        </div>
+        <div class="prog-card__content">
+          <h3 class="prog-card__name">فعاليات عرض الحلول</h3>
+          <p class="prog-card__desc">منصة لعرض الأفكار والحلول أمام المهتمين والشركاء.</p>
+        </div>
+      </article>
+
+      <!-- ══ Card 06 : فرص التعاون — Network constellation ══ -->
+      <article class="prog-card" data-step="6" style="--accent: #C46A36; --accent-soft: rgba(196,106,54,0.35);">
+        <span class="prog-card__corner-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 14 L9 10 L13 12 L17 11 L22 14" />
+            <path d="M3 14 L1 12" />
+            <path d="M22 14 L23 12" />
+            <rect x="9" y="9" width="8" height="6" rx="1.5" fill="currentColor" fill-opacity="0.15"/>
+            <path d="M7 17 L9 17 M15 17 L17 17"/>
+          </svg>
+        </span>
+        <div class="prog-card__bg-pattern" aria-hidden="true">
+          <img src="images/programs/06_partnership_grid.jpg" alt="" loading="lazy">
+        </div>
+        <div class="prog-card__content">
+          <h3 class="prog-card__name">فرص التعاون</h3>
+          <p class="prog-card__desc">ربط المشاريع والشركات وأصحاب الحلول بفرص تعاون وشراكات مؤثرة.</p>
+        </div>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- Closing CTA — Cream luxury editorial over building aerial -->
+  <section id="closing" class="closing" data-section="closing">
+
+    <div class="closing__bg" aria-hidden="true">
+      <div class="closing__photo">
+        <img src="images/closing-aerial.jpg" alt="" loading="lazy" decoding="async">
+      </div>
+      <div class="closing__veil"></div>
+      <div class="closing__vignette"></div>
+      <div class="closing__grain"></div>
+    </div>
+
+    <div class="closing__frame">
+
+      <span class="closing__ornament" aria-hidden="true">
+        <span class="closing__ornament-bar"></span>
+        <span class="closing__ornament-diamond"></span>
+        <span class="closing__ornament-bar"></span>
+      </span>
+
+      <h2 class="closing__title">
+        <span class="closing__word"><span class="closing__word-inner">كن</span></span>
+        <span class="closing__word"><span class="closing__word-inner">جزءًا</span></span>
+        <span class="closing__word"><span class="closing__word-inner">من</span></span>
+        <span class="closing__word closing__word--accent"><span class="closing__word-inner">مجتمع</span></span>
+        <span class="closing__word closing__word--accent"><span class="closing__word-inner">زمرة</span></span>
+        <span class="closing__word closing__word--accent"><span class="closing__word-inner">11</span></span>
+      </h2>
+
+      <div class="closing__rule" aria-hidden="true"></div>
+
+      <p class="closing__body">
+        إذا كنت رائد أعمال، صاحب شركة، مستثمرًا، مبتكرًا،
+        أو مهتمًا بتطوير حلول تجربة الزائر — سجّل اهتمامك اليوم
+        وكن قريبًا من الفرص القادمة.
+      </p>
+
+      <div class="closing__cta-wrap">
+        <a href="#register" class="btn-primary btn-primary--lg closing__cta" data-scroll-to="register" data-cursor="cta">
+          احجز مساحتك القادمة
+          <span class="btn-primary__arrow" aria-hidden="true">←</span>
+        </a>
+      </div>
+
+      <div class="closing__divider"></div>
+
+      <div class="closing__audience">
+        <span class="closing__audience-item">رواد أعمال</span>
+        <span class="closing__audience-dot" aria-hidden="true"></span>
+        <span class="closing__audience-item">شركات</span>
+        <span class="closing__audience-dot" aria-hidden="true"></span>
+        <span class="closing__audience-item">مستثمرون</span>
+        <span class="closing__audience-dot" aria-hidden="true"></span>
+        <span class="closing__audience-item">مبتكرون</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Registration — Concierge Intake -->
+  <section id="register" class="register" data-section="register">
+
+    <div class="register__atmosphere" aria-hidden="true">
+      <div class="register__haze register__haze--left"></div>
+      <div class="register__haze register__haze--right"></div>
+      <div class="register__grid-pattern"></div>
+      <div class="register__grain"></div>
+    </div>
+
+    <div class="register__container">
+
+      <div class="register__header">
+        <div class="eyebrow">
+          <span class="eyebrow__dot"></span>
+          <span class="eyebrow__line"></span>
+          <span class="eyebrow__text">التسجيل</span>
+        </div>
+        <h2 class="register__title">
+          انضم إلى مجتمع <em>زمرة 11</em>
+        </h2>
+        <p class="register__subtitle">
+          يسرّنا تسجيل اهتمامكم للتعرّف على احتياجاتكم واهتماماتكم،
+          بما يسهم في توجيهكم إلى المساحات، والبرامج، والخدمات الأكثر ملاءمة.
+        </p>
+      </div>
+
+      <div class="register__form-wrap">
+
+        <div class="register__progress">
+          <div class="register__progress-bar" aria-hidden="true">
+            <div class="register__progress-fill" style="width: 33.33%;"></div>
+          </div>
+          <div class="register__progress-steps">
+            <span class="register__step is-active" data-step="1">
+              <span class="register__step-circle">
+                <span class="register__step-num">١</span>
+                <svg class="register__step-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="register__step-label">التعريف</span>
+            </span>
+            <span class="register__step" data-step="2">
+              <span class="register__step-circle">
+                <span class="register__step-num">٢</span>
+                <svg class="register__step-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="register__step-label">الاهتمامات</span>
+            </span>
+            <span class="register__step" data-step="3">
+              <span class="register__step-circle">
+                <span class="register__step-num">٣</span>
+                <svg class="register__step-check" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                  <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </span>
+              <span class="register__step-label">التواصل</span>
+            </span>
+          </div>
+        </div>
+
+        <form class="register__form" id="registerForm" novalidate>
+
+          <fieldset class="register__step-panel is-active" data-panel="1">
+            <legend class="register__step-title">من أنت؟</legend>
+            <p class="register__step-hint">اختر التعريف الأقرب لدورك</p>
+
+            <div class="register__role-list">
+
+              <label class="role-row">
+                <input type="radio" name="role" value="entrepreneur" required>
+                <span class="role-row__inner">
+                  <span class="role-row__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                      <path d="M2 17l10 5 10-5M2 12l10 5 10-5"/>
+                    </svg>
+                  </span>
+                  <span class="role-row__text">
+                    <span class="role-row__name">رائد أعمال</span>
+                    <span class="role-row__desc">أبحث عن بيئة لتطوير فكرتي</span>
+                  </span>
+                  <span class="role-row__check" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </span>
+              </label>
+
+              <label class="role-row">
+                <input type="radio" name="role" value="company" required>
+                <span class="role-row__inner">
+                  <span class="role-row__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/>
+                    </svg>
+                  </span>
+                  <span class="role-row__text">
+                    <span class="role-row__name">شركة</span>
+                    <span class="role-row__desc">نبحث عن شركاء أو فرص دخول</span>
+                  </span>
+                  <span class="role-row__check" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </span>
+              </label>
+
+              <label class="role-row">
+                <input type="radio" name="role" value="investor" required>
+                <span class="role-row__inner">
+                  <span class="role-row__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M12 2v20M17 5H9.5a3.5 3.5 0 1 0 0 7h5a3.5 3.5 0 1 1 0 7H6"/>
+                    </svg>
+                  </span>
+                  <span class="role-row__text">
+                    <span class="role-row__name">مستثمر</span>
+                    <span class="role-row__desc">أبحث عن فرص استثمارية واعدة</span>
+                  </span>
+                  <span class="role-row__check" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </span>
+              </label>
+
+              <label class="role-row">
+                <input type="radio" name="role" value="innovator" required>
+                <span class="role-row__inner">
+                  <span class="role-row__icon">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+                      <path d="M12 2v6m0 0a4 4 0 0 0-4 4c0 1.5.6 2.8 1.5 3.8l1 1V20h3v-3.2l1-1c.9-1 1.5-2.3 1.5-3.8a4 4 0 0 0-4-4z"/>
+                    </svg>
+                  </span>
+                  <span class="role-row__text">
+                    <span class="role-row__name">مبتكر / مهتم</span>
+                    <span class="role-row__desc">أتابع تطوير حلول تجربة الزائر</span>
+                  </span>
+                  <span class="role-row__check" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                      <path d="M2 7l3.5 3.5L12 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                </span>
+              </label>
+
+            </div>
+
+            <div class="register__actions">
+              <button type="button" class="btn-primary" data-action="next" data-cursor="cta" disabled>
+                التالي
+                <span class="btn-primary__arrow" aria-hidden="true">←</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="register__step-panel" data-panel="2">
+            <legend class="register__step-title">ما الذي يهمّك في زمرة 11؟</legend>
+            <p class="register__step-hint">يمكنك اختيار أكثر من خيار</p>
+
+            <div class="register__chips">
+              <label class="reg-chip"><input type="checkbox" name="interests" value="programs"><span>برامج الابتكار</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="workshops"><span>ورش العمل</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="testing"><span>التجريب الميداني</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="knowledge"><span>جلسات المعرفة</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="showcase"><span>فعاليات عرض الحلول</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="partnerships"><span>فرص التعاون</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="coworking"><span>مساحات العمل</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="events"><span>مساحات العرض</span></label>
+              <label class="reg-chip"><input type="checkbox" name="interests" value="private-office"><span>المكاتب الخاصة</span></label>
+            </div>
+
+            <div class="register__actions">
+              <button type="button" class="btn-secondary" data-action="back" data-cursor="link">رجوع</button>
+              <button type="button" class="btn-primary" data-action="next" data-cursor="cta">
+                التالي
+                <span class="btn-primary__arrow" aria-hidden="true">←</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="register__step-panel" data-panel="3">
+            <legend class="register__step-title">كيف نتواصل معك؟</legend>
+            <p class="register__step-hint">معلومات التواصل الأساسية</p>
+
+            <div class="register__fields">
+              <div class="reg-field">
+                <label class="reg-field__label" for="reg-name">الاسم الكامل</label>
+                <input type="text" id="reg-name" name="name" class="reg-field__input" required autocomplete="name">
+                <span class="reg-field__error"></span>
+              </div>
+
+              <div class="reg-field">
+                <label class="reg-field__label" for="reg-email">البريد الإلكتروني</label>
+                <input type="email" id="reg-email" name="email" class="reg-field__input" required autocomplete="email" dir="ltr">
+                <span class="reg-field__error"></span>
+              </div>
+
+              <div class="reg-field">
+                <label class="reg-field__label" for="reg-phone">رقم الجوال <span class="reg-field__optional">(اختياري)</span></label>
+                <input type="tel" id="reg-phone" name="phone" class="reg-field__input" autocomplete="tel" dir="ltr" placeholder="+966">
+                <span class="reg-field__error"></span>
+              </div>
+
+              <div class="reg-field">
+                <label class="reg-field__label" for="reg-org">جهة العمل / الشركة <span class="reg-field__optional">(اختياري)</span></label>
+                <input type="text" id="reg-org" name="organization" class="reg-field__input" autocomplete="organization">
+                <span class="reg-field__error"></span>
+              </div>
+            </div>
+
+            <div class="register__actions">
+              <button type="button" class="btn-secondary" data-action="back" data-cursor="link">رجوع</button>
+              <button type="submit" class="btn-primary" data-cursor="cta">
+                إرسال التسجيل
+                <span class="btn-primary__arrow" aria-hidden="true">←</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <div class="register__success" data-panel="success">
+            <div class="register__success-icon">
+              <svg width="64" height="64" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+                <circle cx="32" cy="32" r="30" stroke="var(--terracotta)" stroke-width="1.5" fill="none"/>
+                <path d="M20 32l8 8 16-16" stroke="var(--terracotta)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="register__success-title">شكرًا لاهتمامك</h3>
+            <p class="register__success-body">
+              تم تسجيل اهتمامك بنجاح. سنتواصل معك قريبًا بمعلومات أكثر تخصيصًا
+              حسب اهتماماتك في زمرة 11.
+            </p>
+            <p class="register__success-meta">سنرسل تأكيدًا على بريدك الإلكتروني خلال دقائق</p>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer" class="footer">
+
+    <div class="footer__main">
+
+      <div class="footer__col footer__col--brand">
+        <div class="footer__logo">
+          <img src="images/logo.png" alt="زمرة 11">
+        </div>
+        <p class="footer__tagline">منصة الابتكار في تجربة الزائر</p>
+        <p class="footer__address">
+          مكة المكرمة، المملكة العربية السعودية
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">الصفحة</h4>
+        <ul class="footer__list">
+          <li><a href="#hero" data-cursor="link">الرئيسية</a></li>
+          <li><a href="#spaces" data-cursor="link">المساحات</a></li>
+          <li><a href="#programs" data-cursor="link">البرامج</a></li>
+          <li><a href="#register" data-cursor="link">التسجيل</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__col">
+        <h4 class="footer__col-title">تواصل معنا</h4>
+        <ul class="footer__list">
+          <li><a href="mailto:info@zumra11.sa" data-cursor="link">info@zumra11.sa</a></li>
+        </ul>
+        <div class="footer__social">
+          <a href="https://www.linkedin.com/company/zumra11/about/?viewAsMember=true" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="LinkedIn" data-cursor="link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="https://x.com/zumra_11hub?s=21" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="X (Twitter)" data-cursor="link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/zumra_11hub/" target="_blank" rel="noopener noreferrer" class="footer__social-link" aria-label="Instagram" data-cursor="link">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        © 2026 زمرة 11. جميع الحقوق محفوظة.
+      </p>
+      <p class="footer__evc">
+        مشروع من <span>شركة رؤية الخبراء الاستشارية</span> — EVC
+      </p>
+    </div>
+
+  </footer>
+
+</body>
+</html>

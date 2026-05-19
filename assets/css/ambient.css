@@ -1,0 +1,145 @@
+/* ═══════════════════════════════════════════════
+   GLOBAL AMBIENT BACKGROUND
+   Subtle base layer behind all content
+   ═══════════════════════════════════════════════ */
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Sections MUST be transparent or semi-transparent to let ambient show */
+body > main,
+body > section,
+#hero,
+#spotlight,
+#spaces,
+#roadmap,
+#programs,
+#closing,
+#register {
+  position: relative;
+  z-index: 2;
+  background: transparent !important;
+}
+
+body {
+  background: var(--bg-deepest) !important;
+}
+
+/* ─── Layer 1: soft architectural ring lines ─── */
+.ambient__grid {
+  position: absolute;
+  inset: -8%;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='900' height='900' viewBox='0 0 900 900'%3E%3Cg fill='none' stroke='%230D5B5A' stroke-width='1' opacity='.22'%3E%3Ccircle cx='450' cy='450' r='170'/%3E%3Ccircle cx='450' cy='450' r='285'/%3E%3Cpath d='M120 455a330 330 0 0 1 600-190'/%3E%3Cpath d='M790 485a340 340 0 0 1-570 245'/%3E%3Cpath d='M260 180a235 235 0 0 1 380 40'/%3E%3C/g%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='760' height='760' viewBox='0 0 760 760'%3E%3Cg fill='none' stroke='%23D9CDB8' stroke-width='1' opacity='.13'%3E%3Ccircle cx='380' cy='380' r='210'/%3E%3Cpath d='M95 360a285 285 0 0 1 510-170'/%3E%3Cpath d='M640 410a270 270 0 0 1-420 210'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 900px 900px, 760px 760px;
+  background-position: -220px 8%, calc(100% + 150px) 68%;
+  opacity: 0.34;
+  animation: ringDrift 90s linear infinite;
+}
+
+@keyframes ringDrift {
+  0%   { transform: translate(0, 0); }
+  100% { transform: translate(-24px, -18px); }
+}
+
+/* ─── Layer 2: Aurora color blobs (softer, less movement) ─── */
+.ambient__aurora {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.25;
+  mix-blend-mode: screen;
+}
+
+.ambient__aurora--1 {
+  width: 70vw;
+  height: 70vw;
+  top: -25vw;
+  right: -15vw;
+  background: radial-gradient(
+    circle,
+    rgba(13, 91, 90, 0.95) 0%,
+    rgba(13, 91, 90, 0.4) 30%,
+    transparent 70%
+  );
+  animation: drift1 35s ease-in-out infinite;
+}
+
+.ambient__aurora--2 {
+  width: 55vw;
+  height: 55vw;
+  bottom: -15vw;
+  left: -15vw;
+  background: radial-gradient(
+    circle,
+    rgba(196, 106, 54, 0.7) 0%,
+    rgba(196, 106, 54, 0.25) 30%,
+    transparent 70%
+  );
+  animation: drift2 42s ease-in-out infinite;
+}
+
+.ambient__aurora--3 {
+  width: 50vw;
+  height: 50vw;
+  top: 35%;
+  left: 25%;
+  background: radial-gradient(
+    circle,
+    rgba(77, 68, 150, 0.55) 0%,
+    rgba(77, 68, 150, 0.2) 30%,
+    transparent 70%
+  );
+  animation: drift3 50s ease-in-out infinite;
+}
+
+@keyframes drift1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33%      { transform: translate(-5vw, 4vw) scale(1.08); }
+  66%      { transform: translate(3vw, -3vw) scale(0.96); }
+}
+
+@keyframes drift2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(7vw, -5vw) scale(1.1); }
+}
+
+@keyframes drift3 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40%      { transform: translate(-8vw, 3vw) scale(1.05); }
+  75%      { transform: translate(4vw, -6vw) scale(0.94); }
+}
+
+/* ─── Layer 3: Particles container ─── */
+.ambient__particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ambient__particles .particle {
+  animation-duration: 14s !important;
+}
+
+/* ─── Reduced motion ─── */
+@media (prefers-reduced-motion: reduce) {
+  .ambient__grid,
+  .ambient__aurora,
+  .ambient__particles .particle {
+    animation: none !important;
+  }
+  .ambient__aurora { opacity: 0.15; }
+}
+
+/* ─── Performance: pause when tab hidden ─── */
+.ambient.is-paused .ambient__grid,
+.ambient.is-paused .ambient__aurora {
+  animation-play-state: paused;
+}
